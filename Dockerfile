@@ -1,3 +1,19 @@
+# ---- Development Build ----
+FROM node:18 as development
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]
+
+# ---- Production Build ----
 FROM node:18-alpine as builder
 
 WORKDIR /app
@@ -10,7 +26,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:18-alpine
+FROM node:18-alpine as production
 
 WORKDIR /app
 
