@@ -19,4 +19,4 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_BASE: https://openrouter.ai/api/v1
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
