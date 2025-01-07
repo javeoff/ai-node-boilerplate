@@ -5,10 +5,15 @@ name: Update Wiki
 # recommended
 on:
   push:
+    branches: [main]
     paths:
-      - 'docs/**'
-    branches:
-      - master
+      - docs/**
+      - README.md
+concurrency:
+  group: publish-wiki
+  cancel-in-progress: true
+permissions:
+  contents: write
 
 jobs:
   build:
