@@ -1,5 +1,17 @@
 # GitHub Actions Automation Suite
 
+[![Release](https://github.com/organization/repo/actions/workflows/release.yml/badge.svg)](https://github.com/organization/repo/actions/workflows/release.yml)
+[![Docker](https://github.com/organization/repo/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/organization/repo/actions/workflows/docker-publish.yml)
+
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Required Secrets](#required-secrets)
+- [Workflows](#workflows)
+- [Local Development](#local-development)
+- [Usage](#usage)
+- [Requirements](#requirements)
+
 ## Description
 This project includes several GitHub Actions workflows for automating development processes:
 
@@ -55,7 +67,47 @@ Automatically generates pull requests from issues labeled with 'aider'.
 3. Add 'aider' label to issues for automated PR generation
 4. Docker images will be automatically built and published when Dockerfile is present
 
+## Installation
+
+```bash
+# Install via npm
+npm install @organization/github-actions-automation
+
+# Or using yarn
+yarn add @organization/github-actions-automation
+```
+
 ## Requirements
-- Node.js LTS version
+- Node.js LTS version (16.x or higher)
 - Docker (if using container features)
 - GitHub repository with Actions enabled
+- Git
+
+## Local Development
+
+1. Clone the repository
+```bash
+git clone https://github.com/organization/repo.git
+cd repo
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Build the project
+```bash
+npm run build
+```
+
+4. Run tests
+```bash
+npm test
+```
+
+## Contributing
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
