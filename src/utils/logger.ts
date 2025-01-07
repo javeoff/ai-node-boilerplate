@@ -1,7 +1,22 @@
+/**
+ * Winston logger configuration module.
+ * @module logger
+ */
+
 import process from 'node:process';
 import winston from 'winston';
 import {WinstonTransport as AxiomTransport} from '@axiomhq/winston';
 
+/**
+ * Console output format for Winston logger.
+ * Combines colorization, timestamps, metadata, and custom formatting.
+ * Format includes:
+ * - Colorized output
+ * - Timestamp in YYYY-MM-DD HH:mm:ss.SSS format
+ * - Metadata handling
+ * - Level padding
+ * - Custom printf format
+ */
 const consoleFormat = winston.format.combine(
 	winston.format.colorize(),
 	winston.format.timestamp({
@@ -17,6 +32,11 @@ const consoleFormat = winston.format.combine(
 	}),
 );
 
+/**
+ * Array of Winston transports.
+ * By default includes Console transport.
+ * Axiom transport is added if AXIOM_TOKEN environment variable is present.
+ */
 const transports: winston.transport[] = [
 	new winston.transports.Console({
 		format: consoleFormat,
@@ -34,7 +54,19 @@ if (process.env.AXIOM_TOKEN) {
 }
 
 /**
- * The logger instance used by the application.
+ * The main logger instance used throughout the application.
+ * Configured with:
+ * - Default log level: 'info'
+ * - Console transport (always enabled)
+ * - Axiom transport (enabled when AXIOM_TOKEN is present)
+ * 
+ * @example
+ * ```typescript
+ * import { logger } from './utils/logger';
+ * 
+ * logger.info('Application started');
+ * logger.error('An error occurred', { error: new Error('Something went wrong') });
+ * ```
  */
 export const logger: winston.Logger = winston.createLogger({
 	level: 'info',
