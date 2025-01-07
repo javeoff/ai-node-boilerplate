@@ -55,6 +55,7 @@ if (process.env.AXIOM_TOKEN) {
 
 /**
  * The main logger instance used throughout the application.
+ * Supports axiom logging if AXIOM_TOKEN environment variable is present.
  * Configured with:
  * - Default log level: 'info'
  * - Console transport (always enabled)

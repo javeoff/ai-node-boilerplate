@@ -10,3 +10,5 @@ if [[ -f "$MAIN_PATH" ]]; then
 else
   echo "$MAIN_PATH does not exist. Pre-Commit aborted."
 fi
+
+npm run docs
