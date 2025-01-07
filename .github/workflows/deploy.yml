@@ -7,6 +7,12 @@ on:
       - completed
   workflow_dispatch:
 
+env:
+  NODE_ENV: production
+  CONTAINER_NAME: ai-node-boilerplate
+  IMAGE_NAME: ghcr.io/javeoff/ai-node-boilerplate
+  PORT: 3000
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -33,6 +39,11 @@ jobs:
           - name: Deploy application
             hosts: servers
             become: yes
+            vars:
+              node_env: ${{ env.NODE_ENV }}
+              container_name: ${{ env.CONTAINER_NAME }}
+              image_name: ${{ env.IMAGE_NAME }}
+              port: ${{ env.PORT }}
             tasks:
               - name: Install required system packages
                 apt:
@@ -52,7 +63,10 @@ jobs:
                     NPM_TOKEN=${{ secrets.NPM_TOKEN }}
                     TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
                     TELEGRAM_CI_ID=${{ secrets.TELEGRAM_CI_ID }}
-                    NODE_ENV=production
+                    NODE_ENV={{ node_env }}
+                    CONTAINER_NAME={{ container_name }}
+                    IMAGE_NAME={{ image_name }}
+                    PORT={{ port }}
 
               - name: Login to GitHub Container Registry
                 docker_login:
@@ -62,14 +76,14 @@ jobs:
 
               - name: Pull Docker image
                 docker_container:
-                  name: ai-node-boilerplate
-                  image: ghcr.io/javeoff/ai-node-boilerplate:main
+                  name: "{{ container_name }}"
+                  image: "{{ image_name }}:main"
                   state: started
                   restart: yes
                   pull: yes
                   env_file: /root/.env
                   ports:
-                    - "3000:3000"
+                    - "{{ port }}:{{ port }}"
           EOF
 
       - name: Setup SSH key
