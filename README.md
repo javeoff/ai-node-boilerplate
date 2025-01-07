@@ -1,7 +1,72 @@
 # GitHub Actions Automation Suite
 
 ## Description
-This project includes several GitHub Actions workflows for automating development processes:
+This project includes several GitHub Actions workflows for automating development processes and Docker-based development/production environments.
+
+## Quick Start
+
+```bash
+# Development environment (default)
+make build          # Build development Docker image
+make run           # Run development container
+make restart       # Restart development container
+make logs          # View development container logs
+
+# Production environment
+NODE_ENV=production make build    # Build production Docker image
+NODE_ENV=production make run     # Run production container
+NODE_ENV=production make restart # Restart production container
+NODE_ENV=production make logs    # View production container logs
+```
+
+## Available Make Commands
+
+### Environment-based Commands
+These commands automatically use development or production settings based on `NODE_ENV`:
+
+- `make build` - Build Docker image
+- `make run` - Run container
+- `make restart` - Restart container
+- `make logs` - Show container logs
+
+### Development-specific Commands
+- `make build-dev` - Build development Docker image
+- `make run-dev` - Run development container with hot-reload
+- `make restart-dev` - Restart development container
+- `make logs-dev` - Show development container logs
+
+### Production-specific Commands
+- `make build-prod` - Build production Docker image
+- `make run-prod` - Run production container
+- `make restart-prod` - Restart production container
+- `make logs-prod` - Show production container logs
+
+### Utility Commands
+- `make stop` - Stop all containers (both dev and prod)
+- `make clean` - Stop and remove all containers and images
+- `make help` - Show available commands
+
+## Environment Configuration
+
+### Development Environment
+- Uses hot-reload for real-time code changes
+- Mounts local directory into container
+- Exposes port 3000
+
+### Production Environment
+- Optimized for production use
+- Minimal image size
+- No development dependencies
+
+## Container Details
+- Development container name: myapp-dev
+- Production container name: myapp-prod
+- Default port: 3000
+- Image tags:
+  - Development: myapp:dev
+  - Production: myapp:prod
+
+## GitHub Actions Features
 
 - **Release Automation**: Automated semantic versioning and release management
 - **Docker Image Publishing**: Automated building and publishing of Docker images to GitHub Container Registry
