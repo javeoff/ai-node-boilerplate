@@ -68,7 +68,7 @@ Setup your project secrets to build app. Go to: Settings → Security → Secret
 - `NPM_TOKEN`: NPM Access Token - https://www.npmjs.com/settings/[username]/tokens
 - `SSH_HOST`: IP address or domain of your deployment server
 - `SSH_USERNAME`: SSH username for server access
-- `SERVER_SSH_KEY`: Private SSH key for server authentication
+- `SSH_PRIVATE_KEY`: Private SSH key for server authentication
 
 **Optional**
 - `TELEGRAM_BOT_TOKEN`: Telegram Bot API Token (Get it from: @BotFather on Telegram)
