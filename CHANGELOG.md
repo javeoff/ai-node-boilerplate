@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.3.0...v1.4.0) (2025-01-07)
+
+
+### Features
+
+* Add dynamic environment variables to Ansible deployment workflow ([367ce4a](https://github.com/javeoff/ai-node-boilerplate/commit/367ce4ab37493c9b9e571313e6c664d8810f1127))
+* Dynamically fetch GitHub environment variables and secrets for deployment ([30da3a2](https://github.com/javeoff/ai-node-boilerplate/commit/30da3a2a1dda985c72ae28506b32160be5c5d054))
+
 # [1.3.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.2.0...v1.3.0) (2025-01-07)
 
 
