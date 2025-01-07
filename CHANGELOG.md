@@ -1,3 +1,13 @@
+# [1.1.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.0.0...v1.1.0) (2025-01-07)
+
+
+### Features
+
+* Add environment-based generic commands to Makefile ([77a476a](https://github.com/javeoff/ai-node-boilerplate/commit/77a476aa1462c6c8c56b1c0c3a4d6d28526e2599))
+* Add Makefile with Docker development and production commands ([421bfd3](https://github.com/javeoff/ai-node-boilerplate/commit/421bfd3d46e205ffdf9a5ceac998cdacc30b2181))
+* Add multi-stage Dockerfile for dev and prod environments ([0f0f9ff](https://github.com/javeoff/ai-node-boilerplate/commit/0f0f9ffcdf1ec7805ae4348f444a64be404047a0))
+* Combine Dockerfile with multi-stage builds for dev and prod environments ([787528a](https://github.com/javeoff/ai-node-boilerplate/commit/787528a327c17576d1aba452ad46b3512086fcd4))
+
 # 1.0.0 (2025-01-07)
 
 
