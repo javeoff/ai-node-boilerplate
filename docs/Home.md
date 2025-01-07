@@ -7,6 +7,7 @@
 The new way to create Node.js app with AI integration and other workflow utilites by this Project Template.
 
 [![Build Status](https://github.com/javeoff/ai-node-boilerplate/workflows/Test/badge.svg)](https://github.com/javeoff/ai-node-boilerplate/actions?query=workflow%3ATest+branch%3Amain)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/javeoff/ai-node-boilerplate)](https://github.com/javeoff/ai-node-boilerplate/releases)
 
 ## Features
 
