@@ -1,5 +1,6 @@
 import winston from 'winston';
 import {WinstonTransport as AxiomTransport} from '@axiomhq/winston';
+import process from 'node:process';
 
 const consoleFormat = winston.format.combine(
 	winston.format.colorize(),
@@ -12,7 +13,7 @@ const consoleFormat = winston.format.combine(
 		const meta = Object.keys(metadata).length > 0
 			? `\n[metadata]: ${JSON.stringify(metadata, null, 2)}` : '';
 
-		return `[${timestamp}] ${level} >> ${message}${meta}`;
+		return `[${String(timestamp)}] ${String(level)} >> ${String(message)}${meta}`;
 	}),
 );
 
