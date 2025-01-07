@@ -8,7 +8,7 @@
 
 > `const` **logger**: `winston.Logger`
 
-Defined in: [utils/logger.ts:72](https://github.com/javeoff/ai-node-boilerplate/blob/41b08a4489a01d8a3944b3c7b4786346d405272c/src/utils/logger.ts#L72)
+Defined in: [utils/logger.ts:72](https://github.com/javeoff/ai-node-boilerplate/blob/936f869a26638bb865788de1659720742768255b/src/utils/logger.ts#L72)
 
 The main logger instance used throughout the application.
 Supports axiom logging if AXIOM_TOKEN environment variable is present.

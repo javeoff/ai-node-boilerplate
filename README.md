@@ -107,6 +107,8 @@ When you create pull request will be created, AI will review your PR automatical
 
 ## Roadmap
 
+- [ ] Add CI tests running for commits (but exclude AI commits - already realized)
+- [ ] Add CI Linting for commits (but exclude AI commits - already realized)
 - [ ] Create Auto Deploy project to the hosting
 - [ ] Create Auto installing dependencies to the hosting for Auto Deploy
 - [ ] Create NPM Package support
