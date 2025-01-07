@@ -1,6 +1,6 @@
 # AI Nodejs Boilerplate
 
-The easies way to create Node.js app with AI integration and other workflow utilites by this Project Template.
+The new way to create Node.js app with AI integration and other workflow utilites by this Project Template.
 
 ## Features
 
@@ -44,19 +44,6 @@ These commands automatically use development or production settings based on `NO
 - `make stop` - Stop all containers (both dev and prod)
 - `make clean` - Stop and remove all containers and images
 - `make help` - Show available commands
-
-## Environment Configuration
-
-### Development Environment
-- Uses hot-reload for real-time code changes
-- Mounts local directory into container
-- Exposes port 3000
-
-### Production Environment
-- Optimized for production use
-- Minimal image size
-- No development dependencies
-
 
 ## Parameters
 
@@ -110,7 +97,16 @@ When you create pull request will be created, AI will review your PR automatical
 3. Add 'aider' label to issues for automated PR generation
 4. Docker images will be automatically built and published when Dockerfile is present
 
+## Integrations
+
+- [Codium](https://github.com/Codium-ai/pr-agent) - AI Agent to work with Pull Requests
+- [Aider](https://github.com/Aider-AI/aider/) - AI Agent to write and refactor features by AI
+- [Aider GitHub Actions](https://github.com/javeoff/aider-github-actions) - AI Tool to connect Aider and GitHub Actions + Pull Requests between
+- [Typedoc](https://github.com/TypeStrong/typedoc/) - Tool to create documentation based on codebase automatically
+- [XO](https://www.npmjs.com/package/xo) - Tool to wrap best lint rules all in one
+
 ## Roadmap
 
 - [ ] Create Auto Deploy project to the hosting
 - [ ] Create Auto installing dependencies to the hosting for Auto Deploy
+- [ ] Create NPM Package support
