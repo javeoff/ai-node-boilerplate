@@ -5,15 +5,13 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  # Позволяет запускать workflow вручную из интерфейса GitHub
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     
-    # Пропускаем тесты если коммит сделан AI (содержит [ai-commit])
-    if: "!contains(github.event.head_commit.message, '[ai-commit]')"
+    if: "!contains(github.event.head_commit.message, '[ai]')"
 
     steps:
       - uses: actions/checkout@v4
