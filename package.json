@@ -22,7 +22,7 @@
     "release": "semantic-release",
     "lint": "xo --fix",
     "docs": "typedoc",
-    "prepare": "husky"
+    "prepare:husky": "husky"
   },
   "keywords": [],
   "author": "",

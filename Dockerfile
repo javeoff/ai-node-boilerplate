@@ -32,7 +32,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm i --only=production
+RUN npm ci --omit=dev
 
 COPY --from=builder /app/dist ./dist
 
