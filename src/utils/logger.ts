@@ -1,6 +1,6 @@
+import process from 'node:process';
 import winston from 'winston';
 import {WinstonTransport as AxiomTransport} from '@axiomhq/winston';
-import process from 'node:process';
 
 const consoleFormat = winston.format.combine(
 	winston.format.colorize(),
