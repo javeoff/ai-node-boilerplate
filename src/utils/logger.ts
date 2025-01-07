@@ -25,7 +25,7 @@ const consoleFormat = winston.format.combine(
 	winston.format.metadata({fillExcept: ['message', 'level', 'timestamp']}),
 	winston.format.padLevels(),
 	winston.format.printf(({level, message, timestamp, metadata}) => {
-		const meta = Object.keys(metadata).length > 0
+		const meta = Object.keys(metadata as Record<string, unknown>).length > 0
 			? `\n[metadata]: ${JSON.stringify(metadata, null, 2)}` : '';
 
 		return `[${String(timestamp)}] ${String(level)} >> ${String(message)}${meta}`;
