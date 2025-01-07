@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.4.0...v1.5.0) (2025-01-07)
+
+
+### Features
+
+* Add SSH_PATH parameter to deployment configuration ([b212067](https://github.com/javeoff/ai-node-boilerplate/commit/b2120672e93b4b294f7804365f80a24db2ad4141))
+
 # [1.4.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.3.0...v1.4.0) (2025-01-07)
 
 
