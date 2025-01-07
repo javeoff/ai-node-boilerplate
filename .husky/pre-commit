@@ -4,11 +4,9 @@ README_PATH="docs/Home.md"
 MAIN_PATH="docs/README.md"
 
 if [[ -f "$MAIN_PATH" ]]; then
-  mv "$MAIN_PATH" "$README_PATH"
+  mv "$MAIN_PATH" "$README_PATH" || true
   echo "Replaced $README_PATH with $MAIN_PATH"
+  git add "$README_PATH"
 else
-  echo "Error: $MAIN_PATH does not exist. Commit aborted."
-  exit 1
+  echo "$MAIN_PATH does not exist. Pre-Commit aborted."
 fi
-
-git add "$README_PATH"
