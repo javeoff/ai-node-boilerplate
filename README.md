@@ -81,7 +81,11 @@ These commands automatically use development or production settings based on `NO
   - Used in: release.yml, docker-publish.yml, pr_agent.yml, aider.yml
   - How to create: GitHub Settings → Developer Settings → Personal Access Tokens
 
-- `OPENROUTER_API_KEY`: OpenRouter API key
+- `OPENAI_API_KEY`: OpenRouter API key (Important for Pull Requests AI)
+  - Used for AI features in pr_agent.yml and aider.yml
+  - Get it from: https://platform.openai.com/settings/organization/api-keys
+
+- `OPENROUTER_API_KEY`: OpenRouter API key (Important for Issues AI)
   - Used for AI features in pr_agent.yml and aider.yml
   - Get it from: https://openrouter.ai/
 
@@ -98,6 +102,32 @@ These commands automatically use development or production settings based on `NO
 - `TELEGRAM_CI_ID`: Telegram Chat ID
   - Used to specify where notifications should be sent
   - How to get: Send a message to @userinfobot
+
+## Issues AI
+
+When you add label `aider` for the issue, AI will automatically make code based on your request.
+
+- Information taken from issue title and description
+- You can follow by AI status in the issue
+- AI will create PR linked to the issue
+
+## Pull Requests AI
+
+When you create pull request will be created, AI will review your PR automatically.
+
+- AI will add labels to the pull request automatically
+- You can modify code by command instructions inside pull requests
+- You can ask about new code and issue by AI
+
+### Commands
+
+- `/aider` - Full access to refactor, fix, add features based on whole codebase
+- `/describe` - Automatically generating PR description - title, type, summary, code walkthrough and labels
+- `/review` - Adjustable feedback about the PR, possible issues, security concerns, review effort and more
+- `/improve` - Code suggestions for improving the PR
+- `/ask` - Answering free-text questions about the PR, or on specific code lines
+- `/update_changelog` - Automatically updating the CHANGELOG.md file with the PR changes 
+- `/similar_issue` - Automatically retrieves and presents similar issues 
 
 ## Workflows
 
