@@ -1,6 +1,6 @@
 {
     "excludeExternals": false,
-    "includeVersion": true,
+    "includeVersion": false,
     "entryPoints": ["src/**/*.ts"],
     "plugin": ["typedoc-plugin-markdown"],
     "out": "./docs"

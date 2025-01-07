@@ -1,4 +1,4 @@
-**ai-node-boilerplate v0.0.1**
+**ai-node-boilerplate**
 
 ***
 
