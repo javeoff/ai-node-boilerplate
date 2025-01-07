@@ -72,19 +72,24 @@ jobs:
               - name: Create .env file
                 shell: bash
                 run: |
-                  # Get all environment variables from GitHub and create .env file
-                  gh api /repos/${{ github.repository }}/environments/production/variables --jq '.variables | to_entries | .[] | .key + "=" + .value' > /root/.env
+                  cat > /root/.env << EOL
+                  # Environment variables from workflow
+                  NODE_ENV={{ node_env }}
+                  CONTAINER_NAME={{ container_name }}
+                  IMAGE_NAME={{ image_name }}
+                  PORT={{ port }}
                   
-                  # Add secrets (they are stored separately from variables)
-                  gh api /repos/${{ github.repository }}/actions/secrets --jq '.secrets | .[] | .name' | while read secret; do
-                    echo "${secret}=${{ secrets[secret] }}" >> /root/.env
-                  done
-                  
-                  # Add local env variables from workflow
-                  echo "NODE_ENV={{ node_env }}" >> /root/.env
-                  echo "CONTAINER_NAME={{ container_name }}" >> /root/.env
-                  echo "IMAGE_NAME={{ image_name }}" >> /root/.env
-                  echo "PORT={{ port }}" >> /root/.env
+                  # GitHub secrets
+                  GH_TOKEN=${{ secrets.GH_TOKEN }}
+                  OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+                  OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}
+                  NPM_TOKEN=${{ secrets.NPM_TOKEN }}
+                  SSH_HOST=${{ secrets.SSH_HOST }}
+                  SSH_USERNAME=${{ secrets.SSH_USERNAME }}
+                  SERVER_SSH_KEY=${{ secrets.SERVER_SSH_KEY }}
+                  TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
+                  TELEGRAM_CI_ID=${{ secrets.TELEGRAM_CI_ID }}
+                  EOL
 
               - name: Login to GitHub Container Registry
                 docker_login:
