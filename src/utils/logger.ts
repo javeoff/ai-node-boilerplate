@@ -59,11 +59,11 @@ if (process.env.AXIOM_TOKEN) {
  * - Default log level: 'info'
  * - Console transport (always enabled)
  * - Axiom transport (enabled when AXIOM_TOKEN is present)
- * 
+ *
  * @example
  * ```typescript
  * import { logger } from './utils/logger';
- * 
+ *
  * logger.info('Application started');
  * logger.error('An error occurred', { error: new Error('Something went wrong') });
  * ```
