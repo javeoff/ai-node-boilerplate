@@ -13,6 +13,8 @@ The easies way to create Node.js app with AI integration and other workflow util
 - **TypeScript Docs Automation** - Automated documentation generation based on your codebase
 - **Wiki Automation**: Automated GitHub Wiki generation based on docs folder
 
+Read [Boilerplate Wiki](https://github.com/javeoff/ai-node-boilerplate/wiki) to learn more
+
 ## Quick Start
 
 ```bash
@@ -73,9 +75,10 @@ These commands automatically use development or production settings based on `NO
 
 ### Secrets
 - `GH_TOKEN`: GitHub Personal Access Token. GitHub Settings → Developer Settings → Personal Access Tokens
-- `OPENAI_API_KEY`: [OpenRouter API](https://platform.openai.com/settings/organization/api-keys) key (Important for Pull Requests AI)
+- `OPENAI_API_KEY`: [OpenAI API](https://platform.openai.com/settings/organization/api-keys) key (Important for Pull Requests AI)
 - `OPENROUTER_API_KEY`: [OpenRouter API](https://openrouter.ai/) key (Important for Issues AI)
 - `NPM_TOKEN`: NPM Access Token - https://www.npmjs.com/settings/[username]/tokens
+
 **Optional**
 - `TELEGRAM_BOT_TOKEN`: Telegram Bot API Token (Get it from: @BotFather on Telegram)
 - `TELEGRAM_CI_ID`: Telegram Chat ID for CI status notification
@@ -120,7 +123,7 @@ When you create pull request will be created, AI will review your PR automatical
 3. Add 'aider' label to issues for automated PR generation
 4. Docker images will be automatically built and published when Dockerfile is present
 
-## Requirements
-- Node.js LTS version
-- Docker (if using container features)
-- GitHub repository with Actions enabled
+## Roadmap
+
+- [ ] Create Auto Deploy project to the hosting
+- [ ] Create Auto installing dependencies to the hosting for Auto Deploy
