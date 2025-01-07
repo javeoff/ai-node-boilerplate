@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.2.0...v1.3.0) (2025-01-07)
+
+
+### Features
+
+* **env:** add CONTAINER_NAME variable to .env.example for better configuration ([10b6f2b](https://github.com/javeoff/ai-node-boilerplate/commit/10b6f2b5c8cd2d6d2c49d8a72e755536a6f03ec1))
+
 # [1.2.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.1.0...v1.2.0) (2025-01-07)
 
 
