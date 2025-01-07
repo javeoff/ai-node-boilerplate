@@ -2,10 +2,20 @@
 
 ***
 
-# GitHub Actions Automation Suite
+# AI Nodejs Boilerplate
 
-## Description
-This project includes several GitHub Actions workflows for automating development processes and Docker-based development/production environments.
+The easies way to create Node.js app with AI integration and other workflow utilites by this Project Template.
+
+## Features
+
+- **Issue AI**: Automated PR generation based on issues. Just describe issue, AI will make it itself.
+- **Pull Requests AI**: AI-powered pull request analysis, review, code refactoring
+- **Tests Automation** - AI writes code and run tests automatically to fix errors
+- **Linter Automation** - AI writes code and run lints automatically to write code by best practices and file errors
+- **Release Automation**: Automated semantic versioning and release management
+- **Docker Publishing**: Automated building and publishing of Docker images to GitHub Container Registry
+- **TypeScript Docs Automation** - Automated documentation generation based on your codebase
+- **Wiki Automation**: Automated GitHub Wiki generation based on docs folder
 
 ## Quick Start
 
@@ -69,13 +79,6 @@ These commands automatically use development or production settings based on `NO
 - Image tags:
   - Development: myapp:dev
   - Production: myapp:prod
-
-## GitHub Actions Features
-
-- **Release Automation**: Automated semantic versioning and release management
-- **Docker Image Publishing**: Automated building and publishing of Docker images to GitHub Container Registry
-- **PR Review Assistant**: AI-powered pull request analysis and review
-- **Aider Integration**: Automated PR generation based on issues
 
 ## Required Secrets
 

@@ -122,7 +122,7 @@ When you create pull request will be created, AI will review your PR automatical
 - You can modify code by command instructions inside pull requests
 - You can ask about new code and issue by AI
 
-### Commands
+### PR Commands
 
 - `/aider` - Full access to refactor, fix, add features based on whole codebase
 - `/describe` - Automatically generating PR description - title, type, summary, code walkthrough and labels
@@ -132,24 +132,10 @@ When you create pull request will be created, AI will review your PR automatical
 - `/update_changelog` - Automatically updating the CHANGELOG.md file with the PR changes 
 - `/similar_issue` - Automatically retrieves and presents similar issues 
 
-## Workflows
-
-### release.yml
-Handles semantic versioning and automated releases when changes are pushed to main branch.
-
-### docker-publish.yml
-Builds and publishes Docker images to GitHub Container Registry. Only runs if Dockerfile exists in the repository.
-
-### pr_agent.yml
-Provides AI-powered analysis and review of pull requests using OpenRouter API.
-
-### aider.yml
-Automatically generates pull requests from issues labeled with 'aider'.
-
 ## Usage
 
-1. Add required secrets to your repository
-2. Push changes to main branch to trigger release workflow
+1. Create project by [using this template](https://github.com/new?template_name=ai-node-boilerplate&template_owner=javeoff)
+2. Add required secrets to your repository
 3. Add 'aider' label to issues for automated PR generation
 4. Docker images will be automatically built and published when Dockerfile is present
 

@@ -3,6 +3,8 @@
 README_PATH="docs/Home.md"
 MAIN_PATH="docs/README.md"
 
+npm run docs
+
 if [[ -f "$MAIN_PATH" ]]; then
   mv "$MAIN_PATH" "$README_PATH" || true
   echo "Replaced $README_PATH with $MAIN_PATH"
@@ -10,5 +12,3 @@ if [[ -f "$MAIN_PATH" ]]; then
 else
   echo "$MAIN_PATH does not exist. Pre-Commit aborted."
 fi
-
-npm run docs
