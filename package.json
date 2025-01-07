@@ -12,9 +12,9 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "dev": "tsx --watch src/index.ts",
-    "test": "vitest",
+    "test": "vitest run",
     "test:ui": "vitest --ui",
-    "test:run": "vitest run",
+    "test:watch": "vitest",
     "build:watch": "tsc -w -p tsconfig.esm.json",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p tsconfig.esm.json",
