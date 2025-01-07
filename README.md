@@ -112,3 +112,4 @@ When you create pull request will be created, AI will review your PR automatical
 - [ ] Create Auto Deploy project to the hosting
 - [ ] Create Auto installing dependencies to the hosting for Auto Deploy
 - [ ] Create NPM Package support
+- [ ] Add independent docker container stats by logger with interval
