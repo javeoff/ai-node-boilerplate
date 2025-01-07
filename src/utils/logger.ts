@@ -33,7 +33,10 @@ if (process.env.AXIOM_TOKEN) {
 	);
 }
 
-export const logger = winston.createLogger({
+/**
+ * The logger instance used by the application.
+ */
+export const logger: winston.Logger = winston.createLogger({
 	level: 'info',
 	transports,
 });
