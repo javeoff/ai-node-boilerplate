@@ -54,6 +54,9 @@ These commands automatically use development or production settings based on `NO
 - `OPENAI_API_KEY`: [OpenAI API](https://platform.openai.com/settings/organization/api-keys) key (Important for Pull Requests AI)
 - `OPENROUTER_API_KEY`: [OpenRouter API](https://openrouter.ai/) key (Important for Issues AI)
 - `NPM_TOKEN`: NPM Access Token - https://www.npmjs.com/settings/[username]/tokens
+- `SERVER_HOST`: IP address or domain of your deployment server
+- `SERVER_USERNAME`: SSH username for server access
+- `SERVER_SSH_KEY`: Private SSH key for server authentication
 
 **Optional**
 - `TELEGRAM_BOT_TOKEN`: Telegram Bot API Token (Get it from: @BotFather on Telegram)
