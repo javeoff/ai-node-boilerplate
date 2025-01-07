@@ -69,6 +69,7 @@ Setup your project secrets to build app. Go to: Settings → Security → Secret
 - `SSH_HOST`: IP address or domain of your deployment server
 - `SSH_USERNAME`: SSH username for server access
 - `SSH_PRIVATE_KEY`: Private SSH key for server authentication
+- `SSH_PATH`: Path on the server where the application will be deployed (e.g., "/var/www/app")
 
 **Optional**
 - `TELEGRAM_BOT_TOKEN`: Telegram Bot API Token (Get it from: @BotFather on Telegram)

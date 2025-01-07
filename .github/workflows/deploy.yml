@@ -60,6 +60,7 @@ jobs:
               container_name: ${{ env.CONTAINER_NAME }}
               image_name: ${{ env.IMAGE_NAME }}
               port: ${{ env.PORT }}
+              ssh_path: ${{ secrets.SSH_PATH }}
             tasks:
               - name: Install required system packages
                 apt:
@@ -78,6 +79,7 @@ jobs:
                   CONTAINER_NAME={{ container_name }}
                   IMAGE_NAME={{ image_name }}
                   PORT={{ port }}
+                  SSH_PATH={{ ssh_path }}
                   
                   # GitHub secrets
                   GH_TOKEN=${{ secrets.GH_TOKEN }}
