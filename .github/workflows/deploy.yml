@@ -8,7 +8,7 @@ permissions:
 
 on:
   workflow_run:
-    workflows: ["Docker"]
+    workflows: ["Docker Publish"]
     types:
       - completed
   workflow_dispatch:
@@ -46,7 +46,7 @@ jobs:
         run: |
           mkdir -p ansible
           echo "[servers]" > ansible/inventory
-          echo "server ansible_host=${{ secrets.SERVER_HOST }} ansible_user=${{ secrets.SERVER_USERNAME }}" >> ansible/inventory
+          echo "server ansible_host=${{ secrets.SSH_HOST }} ansible_user=${{ secrets.SSH_USERNAME }}" >> ansible/inventory
 
       - name: Create Ansible playbook
         run: |
@@ -109,7 +109,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Run Ansible playbook
         run: |

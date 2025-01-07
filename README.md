@@ -19,6 +19,15 @@ Read [Boilerplate Wiki](https://github.com/javeoff/ai-node-boilerplate/wiki) to 
 
 ## Quick Start
 
+1. Create project by [using this template](https://github.com/new?template_name=ai-node-boilerplate&template_owner=javeoff)
+2. Add required [secrets/parameters](https://github.com/javeoff/ai-node-boilerplate?tab=readme-ov-file#parameters) to your repository
+3. Add 'aider' label to issues for automated PR generation
+4. Docker images will be automatically built and published when Dockerfile is present
+
+## Usage
+
+### For Developers
+
 ```bash
 # Development environment (default)
 make build          # Build development Docker image
@@ -49,13 +58,16 @@ These commands automatically use development or production settings based on `NO
 
 ## Parameters
 
+Setup your project secrets to build app. Go to: Settings → Security → Secrets and variables
+
 ### Secrets
+
 - `GH_TOKEN`: GitHub Personal Access Token. GitHub Settings → Developer Settings → Personal Access Tokens
 - `OPENAI_API_KEY`: [OpenAI API](https://platform.openai.com/settings/organization/api-keys) key (Important for Pull Requests AI)
 - `OPENROUTER_API_KEY`: [OpenRouter API](https://openrouter.ai/) key (Important for Issues AI)
 - `NPM_TOKEN`: NPM Access Token - https://www.npmjs.com/settings/[username]/tokens
-- `SERVER_HOST`: IP address or domain of your deployment server
-- `SERVER_USERNAME`: SSH username for server access
+- `SSH_HOST`: IP address or domain of your deployment server
+- `SSH_USERNAME`: SSH username for server access
 - `SERVER_SSH_KEY`: Private SSH key for server authentication
 
 **Optional**
@@ -94,13 +106,6 @@ When you create pull request will be created, AI will review your PR automatical
 - `/ask` - Answering free-text questions about the PR, or on specific code lines
 - `/update_changelog` - Automatically updating the CHANGELOG.md file with the PR changes 
 - `/similar_issue` - Automatically retrieves and presents similar issues 
-
-## Usage
-
-1. Create project by [using this template](https://github.com/new?template_name=ai-node-boilerplate&template_owner=javeoff)
-2. Add required secrets to your repository
-3. Add 'aider' label to issues for automated PR generation
-4. Docker images will be automatically built and published when Dockerfile is present
 
 ## Integrations
 

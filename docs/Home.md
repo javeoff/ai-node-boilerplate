@@ -23,6 +23,15 @@ Read [Boilerplate Wiki](https://github.com/javeoff/ai-node-boilerplate/wiki) to 
 
 ## Quick Start
 
+1. Create project by [using this template](https://github.com/new?template_name=ai-node-boilerplate&template_owner=javeoff)
+2. Add required [secrets/parameters](https://github.com/javeoff/ai-node-boilerplate?tab=readme-ov-file#parameters) to your repository
+3. Add 'aider' label to issues for automated PR generation
+4. Docker images will be automatically built and published when Dockerfile is present
+
+## Usage
+
+### For Developers
+
 ```bash
 # Development environment (default)
 make build          # Build development Docker image
@@ -53,11 +62,17 @@ These commands automatically use development or production settings based on `NO
 
 ## Parameters
 
+Setup your project secrets to build app. Go to: Settings → Security → Secrets and variables
+
 ### Secrets
+
 - `GH_TOKEN`: GitHub Personal Access Token. GitHub Settings → Developer Settings → Personal Access Tokens
 - `OPENAI_API_KEY`: [OpenAI API](https://platform.openai.com/settings/organization/api-keys) key (Important for Pull Requests AI)
 - `OPENROUTER_API_KEY`: [OpenRouter API](https://openrouter.ai/) key (Important for Issues AI)
 - `NPM_TOKEN`: NPM Access Token - https://www.npmjs.com/settings/[username]/tokens
+- `SSH_HOST`: IP address or domain of your deployment server
+- `SSH_USERNAME`: SSH username for server access
+- `SERVER_SSH_KEY`: Private SSH key for server authentication
 
 **Optional**
 - `TELEGRAM_BOT_TOKEN`: Telegram Bot API Token (Get it from: @BotFather on Telegram)
@@ -96,13 +111,6 @@ When you create pull request will be created, AI will review your PR automatical
 - `/update_changelog` - Automatically updating the CHANGELOG.md file with the PR changes 
 - `/similar_issue` - Automatically retrieves and presents similar issues 
 
-## Usage
-
-1. Create project by [using this template](https://github.com/new?template_name=ai-node-boilerplate&template_owner=javeoff)
-2. Add required secrets to your repository
-3. Add 'aider' label to issues for automated PR generation
-4. Docker images will be automatically built and published when Dockerfile is present
-
 ## Integrations
 
 - [Codium](https://github.com/Codium-ai/pr-agent) - AI Agent to work with Pull Requests
@@ -110,12 +118,3 @@ When you create pull request will be created, AI will review your PR automatical
 - [Aider GitHub Actions](https://github.com/javeoff/aider-github-actions) - AI Tool to connect Aider and GitHub Actions + Pull Requests between
 - [Typedoc](https://github.com/TypeStrong/typedoc/) - Tool to create documentation based on codebase automatically
 - [XO](https://www.npmjs.com/package/xo) - Tool to wrap best lint rules all in one
-
-## Roadmap
-
-- [ ] Add CI tests running for commits (but exclude AI commits - already realized)
-- [ ] Add CI Linting for commits (but exclude AI commits - already realized)
-- [ ] Create Auto Deploy project to the hosting
-- [ ] Create Auto installing dependencies to the hosting for Auto Deploy
-- [ ] Create NPM Package support
-- [ ] Add independent docker container stats by logger with interval
