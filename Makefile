@@ -1,9 +1,43 @@
 # Variables
+NODE_ENV ?= development
 APP_NAME=myapp
 DEV_TAG=$(APP_NAME):dev
 PROD_TAG=$(APP_NAME):prod
 CONTAINER_NAME_DEV=$(APP_NAME)-dev
 CONTAINER_NAME_PROD=$(APP_NAME)-prod
+
+# Generic commands
+.PHONY: build
+build:
+	@if [ "$(NODE_ENV)" = "production" ]; then \
+		make build-prod; \
+	else \
+		make build-dev; \
+	fi
+
+.PHONY: run
+run:
+	@if [ "$(NODE_ENV)" = "production" ]; then \
+		make run-prod; \
+	else \
+		make run-dev; \
+	fi
+
+.PHONY: restart
+restart:
+	@if [ "$(NODE_ENV)" = "production" ]; then \
+		make restart-prod; \
+	else \
+		make restart-dev; \
+	fi
+
+.PHONY: logs
+logs:
+	@if [ "$(NODE_ENV)" = "production" ]; then \
+		make logs-prod; \
+	else \
+		make logs-dev; \
+	fi
 
 # Development commands
 .PHONY: build-dev
@@ -60,6 +94,10 @@ clean: stop
 .PHONY: help
 help:
 	@echo "Available commands:"
+	@echo "  build         - Build Docker image (dev/prod based on NODE_ENV)"
+	@echo "  run          - Run container (dev/prod based on NODE_ENV)"
+	@echo "  restart      - Restart container (dev/prod based on NODE_ENV)"
+	@echo "  logs         - Show container logs (dev/prod based on NODE_ENV)"
 	@echo "  build-dev     - Build development Docker image"
 	@echo "  run-dev       - Run development container"
 	@echo "  restart-dev   - Restart development container"
