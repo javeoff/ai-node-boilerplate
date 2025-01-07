@@ -72,43 +72,23 @@ These commands automatically use development or production settings based on `NO
 - Minimal image size
 - No development dependencies
 
-## Container Details
-- Development container name: myapp-dev
-- Production container name: myapp-prod
-- Default port: 3000
-- Image tags:
-  - Development: myapp:dev
-  - Production: myapp:prod
+## Parameters
 
-## Required Secrets
+### Secrets
+- `GH_TOKEN`: GitHub Personal Access Token. GitHub Settings → Developer Settings → Personal Access Tokens
+- `OPENAI_API_KEY`: [OpenRouter API](https://platform.openai.com/settings/organization/api-keys) key (Important for Pull Requests AI)
+- `OPENROUTER_API_KEY`: [OpenRouter API](https://openrouter.ai/) key (Important for Issues AI)
+- `NPM_TOKEN`: NPM Access Token - https://www.npmjs.com/settings/[username]/tokens
+**Optional**
+- `TELEGRAM_BOT_TOKEN`: Telegram Bot API Token (Get it from: @BotFather on Telegram)
+- `TELEGRAM_CI_ID`: Telegram Chat ID for CI status notification
 
-### Mandatory
-- `GH_TOKEN`: GitHub Personal Access Token
-  - Required permissions: `contents`, `packages`, `issues`, `pull-requests`
-  - Used in: release.yml, docker-publish.yml, pr_agent.yml, aider.yml
-  - How to create: GitHub Settings → Developer Settings → Personal Access Tokens
+### Environments
 
-- `OPENAI_API_KEY`: OpenRouter API key (Important for Pull Requests AI)
-  - Used for AI features in pr_agent.yml and aider.yml
-  - Get it from: https://platform.openai.com/settings/organization/api-keys
-
-- `OPENROUTER_API_KEY`: OpenRouter API key (Important for Issues AI)
-  - Used for AI features in pr_agent.yml and aider.yml
-  - Get it from: https://openrouter.ai/
-
-- `NPM_TOKEN`: NPM Access Token
-  - Required for publishing packages to NPM
-  - Used in: release.yml
-  - Get it from: https://www.npmjs.com/settings/[username]/tokens
-
-### Optional
-- `TELEGRAM_BOT_TOKEN`: Telegram Bot API Token
-  - Used for build notifications
-  - Get it from: @BotFather on Telegram
-
-- `TELEGRAM_CI_ID`: Telegram Chat ID
-  - Used to specify where notifications should be sent
-  - How to get: Send a message to @userinfobot
+- `NODE_ENV`: Type of your application. (development/production)
+- `CONTAINER_NAME`: Name of your running application
+- `IMAGE_NAME`: Name of your application
+- `PORT`: Opened port to access your application
 
 ## Issues AI
 
