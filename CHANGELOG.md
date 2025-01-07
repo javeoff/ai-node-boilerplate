@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.1.0...v1.2.0) (2025-01-07)
+
+
+### Features
+
+* **docs:** update README.md to reflect new project name and features for AI Node.js Boilerplate ([03f7aa7](https://github.com/javeoff/ai-node-boilerplate/commit/03f7aa710b082e728632c16cf3be1c2bd2351263))
+
 # [1.1.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.0.0...v1.1.0) (2025-01-07)
 
 
