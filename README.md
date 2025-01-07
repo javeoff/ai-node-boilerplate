@@ -33,25 +33,12 @@ NODE_ENV=production make logs    # View production container logs
 
 ## Available Make Commands
 
-### Environment-based Commands
 These commands automatically use development or production settings based on `NODE_ENV`:
 
 - `make build` - Build Docker image
 - `make run` - Run container
 - `make restart` - Restart container
 - `make logs` - Show container logs
-
-### Development-specific Commands
-- `make build-dev` - Build development Docker image
-- `make run-dev` - Run development container with hot-reload
-- `make restart-dev` - Restart development container
-- `make logs-dev` - Show development container logs
-
-### Production-specific Commands
-- `make build-prod` - Build production Docker image
-- `make run-prod` - Run production container
-- `make restart-prod` - Restart production container
-- `make logs-prod` - Show production container logs
 
 ### Utility Commands
 - `make stop` - Stop all containers (both dev and prod)
