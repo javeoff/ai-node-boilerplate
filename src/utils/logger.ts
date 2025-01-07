@@ -4,7 +4,7 @@ import {WinstonTransport as AxiomTransport} from '@axiomhq/winston';
 const consoleFormat = winston.format.combine(
 	winston.format.colorize(),
 	winston.format.timestamp({
-		format: 'YYYY-MM-DD HH:mm:ss.SSS'
+		format: 'YYYY-MM-DD HH:mm:ss.SSS',
 	}),
 	winston.format.printf(({level, message, timestamp}) => `${timestamp} ${level}: ${message}`),
 );
