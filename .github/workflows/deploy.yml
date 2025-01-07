@@ -1,5 +1,11 @@
 name: Deploy
 
+permissions:
+  contents: read
+  packages: write
+  actions: read
+  deployments: write
+
 on:
   workflow_run:
     workflows: ["Docker"]
@@ -21,10 +27,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Ansible
+      - name: Install Ansible and GitHub CLI
         run: |
           sudo apt update
           sudo apt install -y ansible
+          type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+          && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+          && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+          && sudo apt update \
+          && sudo apt install gh -y
+
+      - name: Login to GitHub CLI
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
 
       - name: Create inventory file
         run: |
@@ -54,19 +70,21 @@ jobs:
                   update_cache: yes
 
               - name: Create .env file
-                copy:
-                  dest: /root/.env
-                  content: |
-                    GH_TOKEN=${{ secrets.GH_TOKEN }}
-                    OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
-                    OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}
-                    NPM_TOKEN=${{ secrets.NPM_TOKEN }}
-                    TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
-                    TELEGRAM_CI_ID=${{ secrets.TELEGRAM_CI_ID }}
-                    NODE_ENV={{ node_env }}
-                    CONTAINER_NAME={{ container_name }}
-                    IMAGE_NAME={{ image_name }}
-                    PORT={{ port }}
+                shell: bash
+                run: |
+                  # Get all environment variables from GitHub and create .env file
+                  gh api /repos/${{ github.repository }}/environments/production/variables --jq '.variables | to_entries | .[] | .key + "=" + .value' > /root/.env
+                  
+                  # Add secrets (they are stored separately from variables)
+                  gh api /repos/${{ github.repository }}/actions/secrets --jq '.secrets | .[] | .name' | while read secret; do
+                    echo "${secret}=${{ secrets[secret] }}" >> /root/.env
+                  done
+                  
+                  # Add local env variables from workflow
+                  echo "NODE_ENV={{ node_env }}" >> /root/.env
+                  echo "CONTAINER_NAME={{ container_name }}" >> /root/.env
+                  echo "IMAGE_NAME={{ image_name }}" >> /root/.env
+                  echo "PORT={{ port }}" >> /root/.env
 
               - name: Login to GitHub Container Registry
                 docker_login:
