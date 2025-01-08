@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.5.1...v1.6.0) (2025-01-08)
+
+
+### Features
+
+* **env:** add IMAGE_NAME and PORT variables to .env.example for better configuration ([77143c3](https://github.com/javeoff/ai-node-boilerplate/commit/77143c3d2afe973eb66e614787d16fda24e9ab02))
+
 ## [1.5.1](https://github.com/javeoff/ai-node-boilerplate/compare/v1.5.0...v1.5.1) (2025-01-08)
 
 
