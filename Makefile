@@ -31,6 +31,17 @@ clean: stop
 ps:
 	docker-compose ps
 
+.PHONY: pull
+pull:
+	@if ! git remote | grep -q template; then \
+		echo "Adding template remote..."; \
+		git remote add template https://github.com/AlexXanderGrib/node-service-template.git; \
+	fi
+	@echo "Fetching updates from template..."
+	@git fetch template
+	@echo "Merging template changes..."
+	@git merge template/main --allow-unrelated-histories
+
 .PHONY: help
 help:
 	@echo "Available commands:"
@@ -41,6 +52,7 @@ help:
 	@echo "  stop         - Stop containers"
 	@echo "  clean        - Stop and remove containers, volumes, and images"
 	@echo "  ps           - Show running containers"
+	@echo "  pull         - Pull latest updates from template repository"
 	@echo "  help         - Show this help message"
 	@echo ""
 	@echo "Environment variables (can be set in .env file):"
