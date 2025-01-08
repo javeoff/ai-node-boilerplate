@@ -71,8 +71,7 @@ jobs:
                   update_cache: yes
 
               - name: Create .env file
-                shell: bash
-                run: |
+                shell: |
                   cat > /root/.env << EOL
                   # Environment variables from workflow
                   NODE_ENV={{ node_env }}
