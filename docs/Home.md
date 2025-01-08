@@ -88,6 +88,8 @@ Setup your project secrets to build app. Go to: Settings → Security → Secret
 - `IMAGE_NAME`: Name of your application
 - `PORT`: Opened port to access your application
 - `MAX_MEMORY_LIMIT`: Maximum memory limit
+- `MAX_CPU_LIMI`: Maximum CPU limit
+- `MAX_CPU_CORES`: Maximum CPU cores
 
 ## Issues AI
 
