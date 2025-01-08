@@ -2,9 +2,9 @@ import process from 'node:process';
 import os from 'node:os';
 import {logger} from './utils/logger.js';
 
-const memoryLimit = Number(process.env.MAX_MEMORY_LIMIT) || 512; // MB
-const cpuLimit = Number(process.env.MAX_CPU_LIMIT) || 80; // Percentage
-const warningThreshold = 0.8; // 80% от лимита
+const memoryLimit = Number(process.env.MAX_MEMORY_LIMIT ?? 512);
+const cpuLimit = Number(process.env.MAX_CPU_LIMIT ?? 80);
+const warningThreshold = 0.8;
 
 function getResourceUsage() {
 	const memoryUsage = process.memoryUsage();
@@ -30,13 +30,13 @@ function getResourceUsage() {
 	return {
 		memory: memoryData,
 		cpu: cpuData,
-		isMemoryWarning: memoryData.rss > (MEMORY_LIMIT * WARNING_THRESHOLD),
-		isCpuWarning: cpuData.cpuUsagePercent > (CPU_LIMIT * WARNING_THRESHOLD),
+		isMemoryWarning: memoryData.rss > (memoryLimit * warningThreshold),
+		isCpuWarning: cpuData.cpuUsagePercent > (cpuLimit * warningThreshold),
 	};
 }
 
 // Логируем информацию о запуске
-logger.info('[AI Node Boilerplace] Application started');
+logger.info('Application started');
 logger.info(`Resource limits: Memory ${memoryLimit}MB, CPU ${cpuLimit}%`);
 
 // Запускаем мониторинг ресурсов каждые 5 секунд
@@ -48,8 +48,8 @@ setInterval(() => {
 		logger.warn('Resource usage approaching limits:', {
 			...usage,
 			limits: {
-				memory: MEMORY_LIMIT,
-				cpu: CPU_LIMIT,
+				memory: memoryLimit,
+				cpu: cpuLimit,
 			},
 		});
 	} else {
