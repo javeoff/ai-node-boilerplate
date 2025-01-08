@@ -35,7 +35,7 @@ ps:
 pull:
 	@if ! git remote | grep -q template; then \
 		echo "Adding template remote..."; \
-		git remote add template https://github.com/AlexXanderGrib/node-service-template.git; \
+		git remote add template https://github.com/javeoff/ai-node-boilerplate.git; \
 	fi
 	@echo "Fetching updates from template..."
 	@git fetch template

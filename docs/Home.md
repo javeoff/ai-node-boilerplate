@@ -84,6 +84,7 @@ NODE_ENV=production make clean   # Clean up everything
 - `make stop` - Stop containers
 - `make clean` - Stop and remove containers, volumes, and images
 - `make ps` - Show running containers
+- `make pull` - Pull latest updates from template repository
 - `make help` - Show available commands
 
 ## Parameters
