@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.7.0...v1.8.0) (2025-01-08)
+
+
+### Features
+
+* Add pull command to Makefile for template repository updates ([137eb53](https://github.com/javeoff/ai-node-boilerplate/commit/137eb53cbc1dbb5db0c165386765bb9b0b4414d0))
+
 # [1.7.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.6.0...v1.7.0) (2025-01-08)
 
 
