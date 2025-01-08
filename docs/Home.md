@@ -9,31 +9,6 @@ The new way to create Node.js app with AI integration and other workflow utilite
 [![Build Status](https://github.com/javeoff/ai-node-boilerplate/workflows/Test/badge.svg)](https://github.com/javeoff/ai-node-boilerplate/actions?query=workflow%3ATest+branch%3Amain)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/javeoff/ai-node-boilerplate)](https://github.com/javeoff/ai-node-boilerplate/releases)
 
-## Resource Management
-
-The application includes built-in resource monitoring and limiting capabilities:
-
-- Memory usage monitoring and limits
-- CPU usage monitoring and limits
-- Automatic warning logs when resource usage approaches limits
-- Docker container resource constraints
-
-### Resource Configuration
-
-Resource limits can be configured through environment variables:
-
-```env
-MAX_MEMORY_LIMIT=512    # Memory limit in MB
-MAX_CPU_LIMIT=80        # CPU usage limit in percentage
-MAX_CPU_CORES=1         # Number of CPU cores to use
-```
-
-The application will:
-- Monitor resource usage every 5 seconds
-- Log normal usage at INFO level
-- Switch to WARN level when usage exceeds 80% of limits
-- Apply container-level restrictions through Docker
-
 ## Features
 
 - **Issue AI**: Automated PR generation based on issues. Just describe issue, AI will make it itself.
