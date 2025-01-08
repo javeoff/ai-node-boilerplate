@@ -27,22 +27,19 @@ function getResourceUsage() {
 	};
 }
 
-// Логируем информацию о запуске
 logger.info('Application started');
-logger.info(`Resource limits: Memory ${memoryLimit}MB, CPU ${cpuLimit}%`);
+logger.info(`Application limits: Memory ${memoryLimit}MB, CPU ${cpuLimit}%`);
 
-// Запускаем мониторинг ресурсов каждые 5 секунд
 setInterval(() => {
 	const usage = getResourceUsage();
 
-	// Выбираем уровень логирования в зависимости от использования ресурсов
 	if (usage.isMemoryWarning || usage.isCpuWarning) {
-		logger.warn('Resource usage approaching limits:', {
+		logger.warn('Resource usage approaching limits', {
 			...usage,
 			memoryLimit,
 			cpuLimit,
 		});
 	} else {
-		logger.info('Resource usage:', usage);
+		logger.info('Resource usage', usage);
 	}
 }, 5000);

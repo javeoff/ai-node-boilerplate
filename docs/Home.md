@@ -9,6 +9,31 @@ The new way to create Node.js app with AI integration and other workflow utilite
 [![Build Status](https://github.com/javeoff/ai-node-boilerplate/workflows/Test/badge.svg)](https://github.com/javeoff/ai-node-boilerplate/actions?query=workflow%3ATest+branch%3Amain)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/javeoff/ai-node-boilerplate)](https://github.com/javeoff/ai-node-boilerplate/releases)
 
+## Resource Management
+
+The application includes built-in resource monitoring and limiting capabilities:
+
+- Memory usage monitoring and limits
+- CPU usage monitoring and limits
+- Automatic warning logs when resource usage approaches limits
+- Docker container resource constraints
+
+### Resource Configuration
+
+Resource limits can be configured through environment variables:
+
+```env
+MAX_MEMORY_LIMIT=512    # Memory limit in MB
+MAX_CPU_LIMIT=80        # CPU usage limit in percentage
+MAX_CPU_CORES=1         # Number of CPU cores to use
+```
+
+The application will:
+- Monitor resource usage every 5 seconds
+- Log normal usage at INFO level
+- Switch to WARN level when usage exceeds 80% of limits
+- Apply container-level restrictions through Docker
+
 ## Features
 
 - **Issue AI**: Automated PR generation based on issues. Just describe issue, AI will make it itself.
@@ -16,6 +41,7 @@ The new way to create Node.js app with AI integration and other workflow utilite
 - **Tests Automation** - AI writes code and run tests automatically to fix errors
 - **Linter Automation** - AI writes code and run lints automatically to write code by best practices and file errors
 - **Release Automation**: Automated semantic versioning and release management
+- **Resource Limitation** - Limit CPU/RAM usage and automatically track that
 - **Docker Publishing**: Automated building and publishing of Docker images to GitHub Container Registry
 - **TypeScript Docs Automation** - Automated documentation generation based on your codebase
 - **Wiki Automation**: Automated GitHub Wiki generation based on docs folder
@@ -39,26 +65,25 @@ make build          # Build development Docker image
 make run           # Run development container
 make restart       # Restart development container
 make logs          # View development container logs
+make clean         # Clean up everything
 
 # Production environment
-NODE_ENV=production make build    # Build production Docker image
+NODE_ENV=production make build   # Build production Docker image
 NODE_ENV=production make run     # Run production container
 NODE_ENV=production make restart # Restart production container
 NODE_ENV=production make logs    # View production container logs
+NODE_ENV=production make clean   # Clean up everything
 ```
 
-## Available Make Commands
+### Available Make Commands
 
-These commands automatically use development or production settings based on `NODE_ENV`:
-
-- `make build` - Build Docker image
-- `make run` - Run container
-- `make restart` - Restart container
+- `make build` - Build Docker image using docker-compose
+- `make run` - Run containers using docker-compose
+- `make restart` - Restart containers
 - `make logs` - Show container logs
-
-### Utility Commands
-- `make stop` - Stop all containers (both dev and prod)
-- `make clean` - Stop and remove all containers and images
+- `make stop` - Stop containers
+- `make clean` - Stop and remove containers, volumes, and images
+- `make ps` - Show running containers
 - `make help` - Show available commands
 
 ## Parameters
@@ -86,6 +111,7 @@ Setup your project secrets to build app. Go to: Settings → Security → Secret
 - `CONTAINER_NAME`: Name of your running application
 - `IMAGE_NAME`: Name of your application
 - `PORT`: Opened port to access your application
+- `MAX_MEMORY_LIMIT`: Maximum memory limit
 
 ## Issues AI
 

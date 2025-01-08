@@ -37,6 +37,7 @@ The application will:
 - **Tests Automation** - AI writes code and run tests automatically to fix errors
 - **Linter Automation** - AI writes code and run lints automatically to write code by best practices and file errors
 - **Release Automation**: Automated semantic versioning and release management
+- **Resource Limitation** - Limit CPU/RAM usage and automatically track that
 - **Docker Publishing**: Automated building and publishing of Docker images to GitHub Container Registry
 - **TypeScript Docs Automation** - Automated documentation generation based on your codebase
 - **Wiki Automation**: Automated GitHub Wiki generation based on docs folder
@@ -52,38 +53,22 @@ Read [Boilerplate Wiki](https://github.com/javeoff/ai-node-boilerplate/wiki) to 
 
 ## Usage
 
-### Using Make Commands
+### For Developers
 
 ```bash
-# Build and start the application
-make build
-make run
+# Development environment (default)
+make build          # Build development Docker image
+make run           # Run development container
+make restart       # Restart development container
+make logs          # View development container logs
+make clean         # Clean up everything
 
-# Monitor logs
-make logs
-
-# View running containers
-make ps
-
-# Stop the application
-make stop
-
-# Clean up everything
-make clean
-```
-
-### Using Environment Variables
-
-You can set resource limits when running:
-
-```bash
-# Run with custom limits
-MAX_MEMORY_LIMIT=1024 MAX_CPU_LIMIT=50 make run
-
-# Or use .env file
-cp .env.example .env
-# Edit .env file with your values
-make run
+# Production environment
+NODE_ENV=production make build   # Build production Docker image
+NODE_ENV=production make run     # Run production container
+NODE_ENV=production make restart # Restart production container
+NODE_ENV=production make logs    # View production container logs
+NODE_ENV=production make clean   # Clean up everything
 ```
 
 ### Available Make Commands
@@ -122,6 +107,7 @@ Setup your project secrets to build app. Go to: Settings → Security → Secret
 - `CONTAINER_NAME`: Name of your running application
 - `IMAGE_NAME`: Name of your application
 - `PORT`: Opened port to access your application
+- `MAX_MEMORY_LIMIT`: Maximum memory limit
 
 ## Issues AI
 

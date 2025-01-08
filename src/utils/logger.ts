@@ -28,7 +28,7 @@ const consoleFormat = winston.format.combine(
 		const meta = Object.keys(metadata as Record<string, unknown>).length > 0
 			? `\n[metadata]: ${JSON.stringify(metadata, null, 2)}` : '';
 
-		return `[${String(timestamp)}] ${String(level)} >> ${String(message)}${meta}`;
+		return `[${String(timestamp)}] ${String(level)}: ${String(message).trim()}${meta}`;
 	}),
 );
 
