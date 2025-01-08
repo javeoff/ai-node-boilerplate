@@ -1,8 +1,9 @@
 name: Docker Publish
 
 on:
+  
   workflow_run:
-    workflows: ["Release"]
+    workflows: ["Release", "Test"]
     types:
       - completed
     branches:
@@ -16,7 +17,6 @@ env:
 
 jobs:
   build-and-push:
-    needs: test
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
