@@ -5,6 +5,31 @@ The new way to create Node.js app with AI integration and other workflow utilite
 [![Build Status](https://github.com/javeoff/ai-node-boilerplate/workflows/Test/badge.svg)](https://github.com/javeoff/ai-node-boilerplate/actions?query=workflow%3ATest+branch%3Amain)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/javeoff/ai-node-boilerplate)](https://github.com/javeoff/ai-node-boilerplate/releases)
 
+## Resource Management
+
+The application includes built-in resource monitoring and limiting capabilities:
+
+- Memory usage monitoring and limits
+- CPU usage monitoring and limits
+- Automatic warning logs when resource usage approaches limits
+- Docker container resource constraints
+
+### Resource Configuration
+
+Resource limits can be configured through environment variables:
+
+```env
+MAX_MEMORY_LIMIT=512    # Memory limit in MB
+MAX_CPU_LIMIT=80        # CPU usage limit in percentage
+MAX_CPU_CORES=1         # Number of CPU cores to use
+```
+
+The application will:
+- Monitor resource usage every 5 seconds
+- Log normal usage at INFO level
+- Switch to WARN level when usage exceeds 80% of limits
+- Apply container-level restrictions through Docker
+
 ## Features
 
 - **Issue AI**: Automated PR generation based on issues. Just describe issue, AI will make it itself.
@@ -27,34 +52,49 @@ Read [Boilerplate Wiki](https://github.com/javeoff/ai-node-boilerplate/wiki) to 
 
 ## Usage
 
-### For Developers
+### Using Make Commands
 
 ```bash
-# Development environment (default)
-make build          # Build development Docker image
-make run           # Run development container
-make restart       # Restart development container
-make logs          # View development container logs
+# Build and start the application
+make build
+make run
 
-# Production environment
-NODE_ENV=production make build    # Build production Docker image
-NODE_ENV=production make run     # Run production container
-NODE_ENV=production make restart # Restart production container
-NODE_ENV=production make logs    # View production container logs
+# Monitor logs
+make logs
+
+# View running containers
+make ps
+
+# Stop the application
+make stop
+
+# Clean up everything
+make clean
 ```
 
-## Available Make Commands
+### Using Environment Variables
 
-These commands automatically use development or production settings based on `NODE_ENV`:
+You can set resource limits when running:
 
-- `make build` - Build Docker image
-- `make run` - Run container
-- `make restart` - Restart container
+```bash
+# Run with custom limits
+MAX_MEMORY_LIMIT=1024 MAX_CPU_LIMIT=50 make run
+
+# Or use .env file
+cp .env.example .env
+# Edit .env file with your values
+make run
+```
+
+### Available Make Commands
+
+- `make build` - Build Docker image using docker-compose
+- `make run` - Run containers using docker-compose
+- `make restart` - Restart containers
 - `make logs` - Show container logs
-
-### Utility Commands
-- `make stop` - Stop all containers (both dev and prod)
-- `make clean` - Stop and remove all containers and images
+- `make stop` - Stop containers
+- `make clean` - Stop and remove containers, volumes, and images
+- `make ps` - Show running containers
 - `make help` - Show available commands
 
 ## Parameters
