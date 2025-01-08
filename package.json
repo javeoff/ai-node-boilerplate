@@ -22,7 +22,11 @@
     "release": "semantic-release",
     "lint": "xo --fix",
     "docs": "typedoc",
-    "prepare:husky": "husky"
+    "prepare:husky": "husky",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:restart": "docker-compose restart"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      target: ${NODE_ENV:-development}
+    container_name: ${CONTAINER_NAME:-myapp}
+    image: ${IMAGE_NAME:-app}
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - MAX_MEMORY_LIMIT=${MAX_MEMORY_LIMIT:-512}  # В МБ
+      - MAX_CPU_LIMIT=${MAX_CPU_LIMIT:-80}         # В процентах
+    deploy:
+      resources:
+        limits:
+          memory: ${MAX_MEMORY_LIMIT:-512}M
+          cpus: '${MAX_CPU_CORES:-1}'
+    volumes:
+      - .:/app
+      - /app/node_modules
