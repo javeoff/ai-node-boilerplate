@@ -1,3 +1,13 @@
+# [1.7.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.6.0...v1.7.0) (2025-01-08)
+
+
+### Features
+
+* Add Docker Compose configuration with resource limits and monitoring ([7ca7a61](https://github.com/javeoff/ai-node-boilerplate/commit/7ca7a615a6dedf32dd864e380ebad7112c867619))
+* Add resource monitoring with memory and CPU usage tracking ([10a0fa6](https://github.com/javeoff/ai-node-boilerplate/commit/10a0fa684a794aef7f6851eb59b23160a8526a2c))
+* Rename constants to camelCase to resolve linting errors ([c89eac0](https://github.com/javeoff/ai-node-boilerplate/commit/c89eac076579dedc2e028bbb7fdde187cbb36a8c))
+* Update Makefile and README with docker-compose and resource management ([b00ff74](https://github.com/javeoff/ai-node-boilerplate/commit/b00ff74d33c06c8490f578551eb9031497c1af55))
+
 # [1.6.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.5.1...v1.6.0) (2025-01-08)
 
 
