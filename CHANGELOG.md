@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/javeoff/ai-node-boilerplate/compare/v1.5.0...v1.5.1) (2025-01-08)
+
+
+### Bug Fixes
+
+* Correct Ansible playbook shell module syntax for .env file creation ([86d46e8](https://github.com/javeoff/ai-node-boilerplate/commit/86d46e88b7fd6c8308e936fba6c54a265f408362))
+
 # [1.5.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.4.0...v1.5.0) (2025-01-07)
 
 
