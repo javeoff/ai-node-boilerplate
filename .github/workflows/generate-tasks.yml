@@ -18,7 +18,7 @@ jobs:
         timeout-minutes: 10
         with:
           model: openrouter/anthropic/claude-3.5-sonnet
-          aider_args: '--architect --ask --yes --message "Analyze the project code and suggest 5-10 tasks for improvements and new features. Start each task with a number and dot (e.g. \"1.\", \"2.\" etc.). Each task should be specific and implementable. Describe each task in 1-2 sentences."'
+          aider_args: '--ask --yes --message "Analyze the project code and suggest 5-10 tasks for improvements and new features. Start each task with a number and dot (e.g. \"1.\", \"2.\" etc.). Each task should be specific and implementable. Describe each task in 1-2 sentences."'
           openai_api_key: ${{ secrets.openai_api_key }}
           anthropic_api_key: ${{ secrets.anthropic_api_key }}
           cohere_api_key: ${{ secrets.cohere_api_key }}
