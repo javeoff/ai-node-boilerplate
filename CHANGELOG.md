@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.10.0...v1.11.0) (2025-01-12)
+
+
+### Features
+
+* Update regex to match tasks with or without dot after number ([c54144c](https://github.com/javeoff/ai-node-boilerplate/commit/c54144c7e0a26a57cc0f803fc98a39b04a9c887e))
+
 # [1.10.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.9.0...v1.10.0) (2025-01-12)
 
 
