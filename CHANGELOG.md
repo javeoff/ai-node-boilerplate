@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.9.0...v1.10.0) (2025-01-12)
+
+
+### Features
+
+* Update GitHub workflow to use Aider action with multiple API key support ([8dd2faf](https://github.com/javeoff/ai-node-boilerplate/commit/8dd2fafd325cbdbd60ff99b09fd1ddfc7fcf5b77))
+
 # [1.9.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.8.0...v1.9.0) (2025-01-12)
 
 
