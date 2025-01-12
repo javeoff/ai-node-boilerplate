@@ -1,3 +1,11 @@
+# [1.9.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.8.0...v1.9.0) (2025-01-12)
+
+
+### Features
+
+* Add GitHub workflow for generating project tasks using Aider ([562aaaa](https://github.com/javeoff/ai-node-boilerplate/commit/562aaaa1532eee4e09038d5109dca0ebca0e84b2))
+* Update generate-tasks workflow to use English language ([3b49b9b](https://github.com/javeoff/ai-node-boilerplate/commit/3b49b9b5fbd6cb386d6c83db379ffbefcbf617e6))
+
 # [1.8.0](https://github.com/javeoff/ai-node-boilerplate/compare/v1.7.0...v1.8.0) (2025-01-08)
 
 
