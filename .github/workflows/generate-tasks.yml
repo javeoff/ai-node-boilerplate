@@ -33,8 +33,8 @@ jobs:
           script: |
             const aiderOutput = process.env.AIDER_OUTPUT;
             
-            // Look for tasks matching pattern "number. text"
-            const tasks = aiderOutput.match(/\d+\.\s+[^\n]+/g);
+            // Look for tasks matching pattern "number. text" or "number text"
+            const tasks = aiderOutput.match(/\d+\.?\s+[^\n]+/g);
             
             if (!tasks) {
               console.log('No tasks found in the output');
@@ -42,7 +42,7 @@ jobs:
             }
             
             for (const task of tasks) {
-              const taskText = task.replace(/^\d+\.\s+/, ''); // Remove number prefix
+              const taskText = task.replace(/^\d+\.?\s+/, ''); // Remove number prefix (with or without dot)
               
               await github.rest.issues.create({
                 owner: context.repo.owner,
